@@ -2,9 +2,14 @@
 
 I started this project as an attempt to learn the C language. A phonebook was a nice application to start with since it allows the use of different data structures like binary trees and linked lists. It includes file I/O and is a large enough application to be spread across multiple source files, which helps in learning how to effectively use header files. In addition, it requires memory management and can easily be expanded in the future to include features like an API, search functionality, etc.
 
+- [Formatting the code](#clang-format)
+- [Running tests](#testing)
+- [Building the code](#build-and-run-application)
+- [Cleaning up](#cleaning-up)
+
 ## clang-format
 
-You can formmat all source files using clang-format. This requires  
+You can format all source files using clang-format. This requires  
 clang-format to be installed in your system. You can install  
 clang-format with following command:
 
@@ -44,7 +49,7 @@ make tests
 When writing tests, you can find available assertations from  
 CUnit [website](https://cunit.sourceforge.net/doc/writing_tests.html).
 
-## Build and run app
+## Build and run application
 
 To build the app, you must have gcc installed in to your system.  
 Building is pretty straight forward and can simply be done by  
@@ -58,5 +63,16 @@ make build
 In case you wish to include debug-code to the build, you will  
 need to edit `Makefile` and include `-DDEBUG` to compile-flags. 
 
-After that just build the application normally and run it like 
+After that just build the application normally and run it like  
 normal. It will print out additional debug information. 
+
+## Cleaning up
+
+Build tests or the actual application will generate object-files  
+to `obj/` directory. It also compiles and links the requested  
+binaries to the root directory. In order to clean up all these  
+files, you can simply run: 
+
+```shell
+make clean
+```
