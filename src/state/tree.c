@@ -76,8 +76,8 @@ Node *deleteNode(Node *root, char *name) {
             while (tmp->left != NULL) {
                 tmp = tmp->left;
             }
-            // Any additional values added
-            // later in to the Node needs to be copied here also
+            // Any additional values added to the Node struct
+            // later needs to be copied here also
             strcpy(root->name, tmp->name);
             root->right = deleteNode(root->right, tmp->name);
         }

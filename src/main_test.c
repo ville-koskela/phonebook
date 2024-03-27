@@ -1,3 +1,4 @@
+#include "state/list_test.h"
 #include "state/tree_test.h"
 #include "utils/helpers_test.h"
 #include <CUnit/Basic.h>
@@ -10,10 +11,11 @@ int checkTests(int, ...);
 int main() {
     CU_initialize_registry();
 
+    CU_pSuite listSuite = CU_add_suite("List suite", NULL, NULL);
     CU_pSuite treeSuite = CU_add_suite("Tree suite", NULL, NULL);
     CU_pSuite helperSuite = CU_add_suite("Helper suite", NULL, NULL);
 
-    int suites = checkSuites(2, treeSuite, helperSuite);
+    int suites = checkSuites(3, listSuite, treeSuite, helperSuite);
 
     if (suites) {
         CU_cleanup_registry();
@@ -21,7 +23,10 @@ int main() {
     }
 
     int tests = checkTests(
-        5, CU_add_test(treeSuite, "test of createNode", test_createNode),
+        6,
+        CU_add_test(listSuite, "test of createPhoneNumber",
+                    test_createPhoneNumber),
+        CU_add_test(treeSuite, "test of createNode", test_createNode),
         CU_add_test(treeSuite, "test of insertNode", test_insertNode),
         CU_add_test(treeSuite, "test of searchNode", test_searchNode),
         CU_add_test(treeSuite, "test of deleteNode", test_deleteNode),
